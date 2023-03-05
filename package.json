@@ -8,6 +8,11 @@
   "keywords": [
     "soulseek"
   ],
+  "description": "Soulseek protocol implementation",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "types": "src/index.d.ts",
   "files": [
     "src"
   ],
@@ -26,5 +31,8 @@
     "eslint-config-standard": "^17.0.0",
     "lint-staged": "^13.1.2",
     "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "debug": "^4.3.4"
   }
 }
