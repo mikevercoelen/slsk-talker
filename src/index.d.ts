@@ -1,11 +1,17 @@
-declare module 'src/index' {
-  export interface SlskTalker {
+declare module 'slsk-talker' {
+  export class SlskClient {
+    constructor();
     connect: () => void;
-    disconnect: () => void;
-    on: (event: string, callback: (data: any) => void) => void;
-    off: (event: string, callback: (data: any) => void) => void;
-    send: (command: string, data?: any) => void;
   }
-  export function createSlskTalker(): SlskTalker;
-  export default createSlskTalker;
+
+  export interface SlskTalkerConnectOptions {
+    tmpDir: string
+    host: string
+    port: number
+    sharedFolders: string[]
+  }
+
+  export function connect(options: SlskTalkerConnectOptions, cb: (error: any, client: SlskClient) => void): void;
+  export function disconnect(): void
+  export let tmpDir: string
 }
