@@ -8,10 +8,6 @@ let tmpDir = null
 
 module.exports = {
   connect: (obj, cb) => {
-    if (typeof cb !== 'function') {
-      throw new Error('2nd argument must be callback function')
-    }
-
     obj.tmpDir = obj.tmpDir || path.join(os.tmpdir(), 'slsk')
     tmpDir = obj.tmpDir
 
