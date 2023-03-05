@@ -1,0 +1,27 @@
+{
+  "name": "slsk-talker",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/mikevercoelen/slsk-talker.git",
+  "author": "Mike Vercoelen <mike.vercoelen@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "soulseek"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx .",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.35.0",
+    "eslint-config-standard": "^17.0.0",
+    "lint-staged": "^13.1.2",
+    "pre-commit": "^1.2.2"
+  }
+}
