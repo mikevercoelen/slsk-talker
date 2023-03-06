@@ -1,4 +1,14 @@
 declare module 'slsk-talker' {
+  export type SearchResult = {
+    user: string
+    file: string
+    size: number
+    slots: boolean
+    bitrate?: number
+    attributes: Record<string, number>
+    speed: number
+  }
+
   export interface SlskSearchOptions {
     req: string
     timeout?: number
@@ -7,7 +17,9 @@ declare module 'slsk-talker' {
   export class SlskClient {
     constructor();
     on(event: string, cb: (data: any) => void): void
-    search(options: SlskSearchOptions, cb: (data: any) => void): void
+    off(event: string, cb: (data: any) => void): void
+    once(event: string, cb: (data: any) => void): void
+    search(options: SlskSearchOptions, cb: (error: any, res: SearchResult[]) => void): void
     download: any
     downloadStream: any
     disconnect: any
